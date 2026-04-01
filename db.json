@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "name": "Krishna S Lal",
+      "email": "krishna@gmail.com",
+      "password": "krishna",
+      "id": "KOZqpid4Cl8"
+    }
+  ],
+  "history": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,123 @@
+body {
+    font-family: Arial;
+    background: #eef1ff;
+}
+
+.container {
+    width: 900px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(to right, #4a6cf7, #6f8cff);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* LABEL */
+.label {
+    margin-top: 20px;
+    font-size: 12px;
+    color: gray;
+}
+
+/* TYPES */
+.types {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.type {
+    width: 150px;
+    padding: 15px;
+    background: #f5f6fa;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.type.active {
+    border: 2px solid #00c3a5;
+}
+
+.type span {
+    display: block;
+    margin-top: 5px;
+}
+
+/* ACTION */
+.actions {
+    margin-top: 10px;
+}
+
+.actions button {
+    padding: 8px 20px;
+    margin-right: 10px;
+    border: none;
+    background: #eaeaf0;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.actions .active {
+    background: #4a6cf7;
+    color: white;
+}
+
+/* VALUES */
+.values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.values input {
+    width: 120px;
+    padding: 10px;
+}
+
+.values select {
+    width: 140px;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* OPERATOR */
+#operatorSection {
+    text-align: center;
+}
+
+#selectedOp {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.operators button {
+    margin: 5px;
+    padding: 8px;
+    width: 40px;
+}
+
+/* RESULT */
+.result {
+    margin-top: 20px;
+    background: #f5f6fa;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-left h2 {
+    color: #4a6cf7;
+}
