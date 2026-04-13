@@ -1,0 +1,42 @@
+<div class="auth-page">
+  <div class="auth-card-wrapper">
+    <div class="branding-card">
+      <img src="assets/logos/qm-logo.png" alt="Quantity Measurement Logo" class="logo" />
+      <h1>Quantity Measurement</h1>
+      <p>Manage secure access and start working with smart quantity operations.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="tab-header">
+        <a routerLink="/login" class="tab">LOGIN</a>
+        <a routerLink="/signup" class="tab active">SIGNUP</a>
+      </div>
+
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="auth-form">
+        <label>Full Name</label>
+        <input type="text" formControlName="fullName" placeholder="Enter your full name" />
+
+        <label>Email Id</label>
+        <input type="email" formControlName="email" placeholder="Enter your email" />
+
+        <label>Password</label>
+        <div class="password-box">
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Create password" />
+          <button type="button" class="eye-btn" (click)="togglePassword()">
+            {{ showPassword ? '🙈' : '👁️' }}
+          </button>
+        </div>
+
+        <label>Mobile Number</label>
+        <input type="text" formControlName="mobileNumber" placeholder="Enter 10 digit mobile number" />
+
+        <button type="submit" class="submit-btn" [disabled]="loading">
+          {{ loading ? 'Creating account...' : 'Signup' }}
+        </button>
+
+        <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+        <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </div>
+  </div>
+</div>

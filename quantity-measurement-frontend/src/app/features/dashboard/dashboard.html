@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+<div class="dashboard-page">
+  <div class="dashboard-card">
+    <div class="welcome-banner">
+      <h1>Welcome To Quantity Measurement</h1>
+    </div>
+
+    <div class="section">
+      <h4>CHOOSE TYPE</h4>
+      <div class="type-grid">
+        <div
+          class="type-card"
+          *ngFor="let type of measurementTypes"
+          [class.active]="selectedType === type"
+          (click)="selectType(type)"
+        >
+          <div class="type-icon">
+            {{ type === 'Length' ? '📏' : type === 'Weight' ? '⚖️' : type === 'Temperature' ? '🌡️' : '🧪' }}
+          </div>
+          <span>{{ type }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4>CHOOSE ACTION</h4>
+      <div class="action-grid">
+        <button
+          *ngFor="let option of operationOptions"
+          type="button"
+          [class.active]="selectedOperation === option.value"
+          (click)="selectOperation(option.value)"
+        >
+          {{ option.label }}
+        </button>
+      </div>
+    </div>
+
+    <div class="values-row">
+      <div class="value-box">
+        <label>VALUE 1</label>
+        <input type="number" [(ngModel)]="value1" />
+        <select [(ngModel)]="unit1">
+          <option *ngFor="let unit of currentUnits" [value]="unit">
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+
+      <div class="operator-box">
+        <span>{{ selectedOperationSymbol }}</span>
+      </div>
+
+      <div class="value-box">
+        <label>VALUE 2</label>
+        <input type="number" [(ngModel)]="value2" />
+        <select [(ngModel)]="unit2">
+          <option *ngFor="let unit of currentUnits" [value]="unit">
+            {{ unit }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <button class="calculate-btn" type="button" (click)="submit()" [disabled]="loading">
+        {{ loading ? 'Calculating...' : 'Calculate' }}
+      </button>
+    </div>
+
+    <div class="result-card" *ngIf="result">
+      <div>
+        <p class="result-label">RESULT</p>
+        <h2>{{ resultDisplay }}</h2>
+        <small *ngIf="result?.operation">Operation: {{ result.operation }}</small>
+      </div>
+
+      <select [(ngModel)]="resultUnit">
+        <option *ngFor="let unit of currentUnits" [value]="unit">
+          {{ unit }}
+        </option>
+      </select>
+    </div>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+</div>
